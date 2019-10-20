@@ -159,3 +159,22 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function load_bootstrap()
+{
+    wp_enqueue_style( 'bootstrap_min_css', get_template_directory_uri() . '/libs/bootstrap/css/bootstrap.min.css');
+    wp_enqueue_script('bootstrap_min_js', get_stylesheet_directory_uri() . '/libs/bootstrap/js/bootstrap.min.js');
+
+}
+add_action('wp_enqueue_scripts', 'load_bootstrap');
+
+function load_scripts() //тут остальні скріпти і стилі
+{
+    wp_enqueue_style( 'owl_carousel_min_css', get_template_directory_uri() . '/libs/owl-carousel/assets/owl.carousel.min.css');
+    wp_enqueue_style('media_css', get_stylesheet_directory_uri() . '/css/media.css');
+    wp_enqueue_style('fons_css', get_stylesheet_directory_uri() . '/css/fons.css');
+    wp_enqueue_style( 'owl_theme_default_min_css', get_template_directory_uri() . '/libs/owl-carousel/assets/owl.theme.default.min.css');
+    wp_enqueue_script('owl_carousel_min_js', get_stylesheet_directory_uri() . '/libs/owl-carousel/owl.carousel.min.js');
+    wp_enqueue_script('spincrement', get_stylesheet_directory_uri() . '/js/jquery.spincrement.min.js');
+    wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/js/scripts.js');
+}
+add_action('wp_enqueue_scripts', 'load_scripts');
