@@ -4,6 +4,58 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
+$('#testimonial .owl-carousel').owlCarousel({
+	loop:true,
+	margin:10,
+	nav:false,
+	responsive:{
+		0:{
+			items:1
+		},
+		900:{
+			items:2
+		}
+	}
+});
+
+jQuery('.logo i').on('click', function () {
+	jQuery('header #site-navigation').toggle();
+	if (jQuery('header #site-navigation').is(':visible')) {
+
+		jQuery(".logo  i").removeClass('fa-align-justify');
+		jQuery(".logo i").addClass(' fa-times');
+
+	}
+	else {
+		jQuery(".logo i").removeClass(' fa-times');
+		jQuery(".logo i").addClass('fa-align-justify');
+	}
+});
+
+$(document).ready(function () {
+	let show = true;
+	const progress = $('#progress');
+	const countbox = $('.benefits__inner');
+	const number = $('.number');
+	if (progress.length) {
+		$(window).on("scroll load resize", function () {
+			if (!show) return false; // Отменяем показ анимации, если она уже была выполнена
+			const w_top = $(window).scrollTop(); // Количество пикселей на которое была прокручена страница
+			let e_top = progress.offset().top; // Расстояние от блока со счетчиками до верха всего документа
+			const w_height = $(window).height(); // Высота окна браузера
+			const d_height = $(document).height(); // Высота всего документа
+			const e_height = countbox.outerHeight(); // Полная высота блока со счетчиками
+			if (w_top + (w_height - 150) >= e_top || w_height + w_top === d_height || e_height + e_top < w_height) {
+				number.css('opacity', '1');
+				number.spincrement({
+					thousandSeparator: ",",
+					duration: 6000
+				});
+				show = false;
+			}
+		});
+	}
+});
 ( function() {
 	var container, button, menu, links, i, len;
 

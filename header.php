@@ -28,12 +28,12 @@
         <div class="contacts">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-md-3">
                         <p>Have any question?</p>
                     </div>
-                    <div class="col-lg-4 offset-lg-6 contact-block-right">
-                        <a href="mail:contact@mail.com"><i class="far fa-envelope"></i><span>contact@mail.com </span></a>
-                        <a href="tel:+080 0444 333 444"><i class="fas fa-phone-volume"></i><span>+080 0444 333 444 </span></a>
+                    <div class="col-lg-4 offset-lg-6  col-md-5 offset-md-4 contact-block-right">
+                        <a href="mailto:contact@mail.com"><i class="far fa-envelope" rel="mailto"></i><span>contact@mail.com </span></a>
+                        <a href="tel:+080 0444 333 444"><i class="fas fa-phone-volume" rel="tel"></i><span>+080 0444 333 444 </span></a>
                     </div>
 
                 </div>
@@ -42,14 +42,18 @@
         <div class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-md-3">
                         <div class="logo">
                             <a href="<?php echo esc_url(home_url('/')); ?> " rel="home">
                                 <img src="/wp-content/uploads/2019/10/logo.png" alt="logo.png">
                             </a>
+                            <div class="toogle">
+                                <i class="fas fa-align-justify"></i>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 offset-lg-6 main-menu">
+                    <div class="col-lg-4 offset-lg-6 col-md-5 offset-md-4 main-menu">
+
                          <nav id="site-navigation" class="main-navigation">
                                 <?php
                                 wp_nav_menu( array(
